@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJSU Bell Tower - CSS Art</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #4a90e2);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .scene {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 30%, #B8E6B8 70%, #90EE90 100%);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* Sky gradient */
+        .sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 50%, #B8E6B8 100%);
+        }
+
+        /* Sun */
+        .sun {
+            position: absolute;
+            top: 50px;
+            right: 80px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #FFD700 0%, #FFA500 70%, #FF8C00 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+            100% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
+        }
+
+        /* Ground */
+        .ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, #8FBC8F 0%, #90EE90 50%, #98FB98 100%);
+        }
+
+        /* Bell Tower Base */
+        .tower-base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 400px;
+            background: linear-gradient(90deg, #696969 0%, #808080 50%, #696969 100%);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Tower Windows */
+        .window {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: #4A90E2;
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .window-1 { top: 80px; left: 20px; }
+        .window-2 { top: 80px; right: 20px; }
+        .window-3 { top: 150px; left: 20px; }
+        .window-4 { top: 150px; right: 20px; }
+        .window-5 { top: 220px; left: 20px; }
+        .window-6 { top: 220px; right: 20px; }
+        .window-7 { top: 290px; left: 20px; }
+        .window-8 { top: 290px; right: 20px; }
+
+        /* Bell Tower Middle Section */
+        .tower-middle {
+            position: absolute;
+            bottom: 400px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 80px;
+            background: linear-gradient(90deg, #696969 0%, #808080 50%, #696969 100%);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Bell Tower Top Section */
+        .tower-top {
+            position: absolute;
+            bottom: 480px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(90deg, #696969 0%, #808080 50%, #696969 100%);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Bell Tower Spire */
+        .tower-spire {
+            position: absolute;
+            bottom: 540px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(90deg, #696969 0%, #808080 50%, #696969 100%);
+            border-radius: 5px 5px 0 0;
+        }
+
+        /* Bell */
+        .bell {
+            position: absolute;
+            bottom: 420px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 50px;
+            background: radial-gradient(ellipse at center, #FFD700 0%, #FFA500 70%, #FF8C00 100%);
+            border-radius: 50% 50% 40% 40%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .bell::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: #8B4513;
+            border-radius: 50%;
+        }
+
+        /* Bell Tower Details */
+        .tower-detail {
+            position: absolute;
+            background: #4A90E2;
+            border-radius: 3px;
+        }
+
+        .detail-1 {
+            top: 60px;
+            left: 30px;
+            width: 60px;
+            height: 5px;
+        }
+
+        .detail-2 {
+            top: 130px;
+            left: 30px;
+            width: 60px;
+            height: 5px;
+        }
+
+        .detail-3 {
+            top: 200px;
+            left: 30px;
+            width: 60px;
+            height: 5px;
+        }
+
+        .detail-4 {
+            top: 270px;
+            left: 30px;
+            width: 60px;
+            height: 5px;
+        }
+
+        /* Clock Face */
+        .clock {
+            position: absolute;
+            bottom: 450px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: #FFF8DC;
+            border-radius: 50%;
+            border: 3px solid #8B4513;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .clock::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 20px;
+            background: #8B4513;
+            border-radius: 1px;
+        }
+
+        .clock::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 15px;
+            background: #8B4513;
+            border-radius: 1px;
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        /* Trees */
+        .tree {
+            position: absolute;
+            bottom: 0;
+            width: 60px;
+            height: 120px;
+        }
+
+        .tree-trunk {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 40px;
+            background: linear-gradient(90deg, #8B4513 0%, #A0522D 100%);
+            border-radius: 5px;
+        }
+
+        .tree-leaves {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 80px;
+            background: radial-gradient(ellipse at center, #228B22 0%, #32CD32 70%, #90EE90 100%);
+            border-radius: 50% 50% 40% 40%;
+        }
+
+        .tree-1 { left: 100px; }
+        .tree-2 { right: 100px; }
+        .tree-3 { left: 200px; }
+        .tree-4 { right: 200px; }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cloud-1 {
+            top: 80px;
+            left: 50px;
+            width: 80px;
+            height: 40px;
+            animation-delay: 0s;
+        }
+
+        .cloud-2 {
+            top: 120px;
+            right: 150px;
+            width: 60px;
+            height: 30px;
+            animation-delay: 2s;
+        }
+
+        .cloud-3 {
+            top: 60px;
+            left: 300px;
+            width: 70px;
+            height: 35px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Title */
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #1e3c72;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            z-index: 10;
+        }
+
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .scene {
+                width: 600px;
+                height: 450px;
+            }
+            
+            .tower-base {
+                width: 90px;
+                height: 300px;
+            }
+            
+            .tower-middle {
+                width: 75px;
+                height: 60px;
+                bottom: 300px;
+            }
+            
+            .tower-top {
+                width: 60px;
+                height: 45px;
+                bottom: 360px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="title">SJSU Bell Tower</div>
+        
+        <!-- Sky -->
+        <div class="sky"></div>
+        
+        <!-- Sun -->
+        <div class="sun"></div>
+        
+        <!-- Clouds -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        
+        <!-- Ground -->
+        <div class="ground"></div>
+        
+        <!-- Trees -->
+        <div class="tree tree-1">
+            <div class="tree-trunk"></div>
+            <div class="tree-leaves"></div>
+        </div>
+        <div class="tree tree-2">
+            <div class="tree-trunk"></div>
+            <div class="tree-leaves"></div>
+        </div>
+        <div class="tree tree-3">
+            <div class="tree-trunk"></div>
+            <div class="tree-leaves"></div>
+        </div>
+        <div class="tree tree-4">
+            <div class="tree-trunk"></div>
+            <div class="tree-leaves"></div>
+        </div>
+        
+        <!-- Bell Tower -->
+        <div class="tower-base">
+            <!-- Windows -->
+            <div class="window window-1"></div>
+            <div class="window window-2"></div>
+            <div class="window window-3"></div>
+            <div class="window window-4"></div>
+            <div class="window window-5"></div>
+            <div class="window window-6"></div>
+            <div class="window window-7"></div>
+            <div class="window window-8"></div>
+            
+            <!-- Details -->
+            <div class="tower-detail detail-1"></div>
+            <div class="tower-detail detail-2"></div>
+            <div class="tower-detail detail-3"></div>
+            <div class="tower-detail detail-4"></div>
+        </div>
+        
+        <div class="tower-middle"></div>
+        <div class="tower-top"></div>
+        <div class="tower-spire"></div>
+        
+        <!-- Bell -->
+        <div class="bell"></div>
+        
+        <!-- Clock -->
+        <div class="clock"></div>
+    </div>
+</body>
+</html>
